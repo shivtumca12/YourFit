@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | YourFit House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <h1>YourFit<span>House</span></h1>
+      <p class="login-sub">Admin panel</p>
+      <form id="loginForm">
+        <label>
+          Username
+          <input type="text" name="username" required autocomplete="username" />
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" required autocomplete="current-password" />
+        </label>
+        <p class="form-error" id="loginError" hidden></p>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+      <a href="/" class="back-link">← Back to store</a>
+    </div>
+  </div>
+
+  <div id="adminApp" class="admin-app" hidden>
+    <aside class="sidebar">
+      <a href="/" class="logo">YourFit<span>House</span></a>
+      <p class="sidebar-label">Admin</p>
+      <nav>
+        <button type="button" class="nav-item active" data-tab="dashboard">Dashboard</button>
+        <button type="button" class="nav-item" data-tab="products">Shop items</button>
+        <button type="button" class="nav-item" data-tab="collections">Collections</button>
+        <button type="button" class="nav-item" data-tab="subscribers">Newsletter</button>
+      </nav>
+      <div class="sidebar-foot">
+        <span id="adminUser"></span>
+        <button type="button" id="logoutBtn" class="btn btn-ghost btn-sm">Log out</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <h2 id="pageTitle">Dashboard</h2>
+        <div class="header-actions">
+          <a href="/" target="_blank" class="btn btn-ghost" id="viewSiteBtn">View store ↗</a>
+          <button type="button" id="addBtn" class="btn btn-primary">+ Add shop item</button>
+        </div>
+      </header>
+
+      <section id="tab-dashboard" class="tab-panel">
+        <div class="dashboard-cards">
+          <article class="dash-card dash-card--primary">
+            <h3>Add a shop item</h3>
+            <p>Products you add here show in the <strong>New Arrivals</strong> section on your homepage.</p>
+            <button type="button" class="btn btn-primary" id="dashAddItem">+ Add shop item</button>
+          </article>
+          <article class="dash-card">
+            <h3>Add a collection</h3>
+            <p>Collections appear in the <strong>Collections</strong> section (featured lookbooks).</p>
+            <button type="button" class="btn btn-ghost" id="dashAddCollection">+ Add collection</button>
+          </article>
+          <article class="dash-card">
+            <h3>Preview your store</h3>
+            <p>Open the live site to see items after you save them.</p>
+            <a href="/" target="_blank" class="btn btn-ghost">Open store ↗</a>
+          </article>
+        </div>
+        <p class="dash-hint">Login: <code>admin</code> / <code>yourfithouse</code> · Run <code>./start.sh</code> if the site won’t load.</p>
+      </section>
+
+      <!-- Shop items -->
+      <section id="tab-products" class="tab-panel" hidden>
+        <p class="panel-desc">These items display on the homepage under <strong>Fresh from the house</strong>.</p>
+        <div id="productsList" class="data-list"></div>
+      </section>
+
+      <!-- Collections tab -->
+      <section id="tab-collections" class="tab-panel" hidden>
+        <p class="panel-desc">These display on the homepage under <strong>Collections</strong>.</p>
+        <div id="collectionsList" class="data-list"></div>
+      </section>
+
+      <!-- Subscribers tab -->
+      <section id="tab-subscribers" class="tab-panel" hidden>
+        <div id="subscribersList" class="data-list subscribers-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-dialog">
+      <header class="modal-header">
+        <h3 id="modalTitle">Add collection</h3>
+        <button type="button" class="modal-close" data-close aria-label="Close">×</button>
+      </header>
+      <form id="modalForm" class="modal-body">
+        <input type="hidden" name="id" />
+        <input type="hidden" name="type" value="collection" />
+
+        <label class="field" data-field="title">
+          <span>Title</span>
+          <input type="text" name="title" required />
+        </label>
+
+        <label class="field" data-field="name">
+          <span>Item name</span>
+          <input type="text" name="name" placeholder="e.g. House Logo Tee" />
+        </label>
+
+        <label class="field" data-field="description">
+          <span>Description</span>
+          <textarea name="description" rows="2"></textarea>
+        </label>
+
+        <label class="field" data-field="meta">
+          <span>Details (e.g. fabric, fit)</span>
+          <input type="text" name="meta" />
+        </label>
+
+        <div class="field-row" data-field="price-badge">
+          <label class="field" data-field="price">
+            <span>Price ($)</span>
+            <input type="number" name="price" min="0" step="0.01" />
+          </label>
+          <label class="field" data-field="badge">
+            <span>Badge</span>
+            <select name="badge">
+              <option value="">None</option>
+              <option value="new">New</option>
+              <option value="hot">Hot</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field" data-field="collection_id">
+          <span>Collection (optional)</span>
+          <select name="collection_id">
+            <option value="">— None —</option>
+          </select>
+        </label>
+
+        <div class="field-row" data-field="layout-order">
+          <label class="field" data-field="layout">
+            <span>Card size</span>
+            <select name="layout">
+              <option value="normal">Normal</option>
+              <option value="large">Large (featured)</option>
+            </select>
+          </label>
+          <label class="field" data-field="sort_order">
+            <span>Sort order</span>
+            <input type="number" name="sort_order" value="0" min="0" />
+          </label>
+        </div>
+
+        <label class="field" data-field="image">
+          <span>Image</span>
+          <input type="file" name="image" accept="image/*" />
+          <p class="field-hint">Or paste an image URL below</p>
+          <input type="url" name="image_url" placeholder="https://..." />
+        </label>
+
+        <div id="imagePreview" class="image-preview" hidden>
+          <img src="" alt="Preview" />
+        </div>
+
+        <footer class="modal-footer">
+          <button type="button" class="btn btn-ghost" data-close>Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="YourFit House — premium streetwear and activewear. Move bold. Dress sharper." />
+  <title>YourFit House | Premium Streetwear & Activewear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="logo">YourFit<span>House</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="nav-cta">Join the House</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-content container">
+        <p class="hero-tag">Spring / Summer 2026</p>
+        <h1 class="hero-title">
+          <span class="line">Your body.</span>
+          <span class="line accent">Your fit.</span>
+          <span class="line">Your house.</span>
+        </h1>
+        <p class="hero-desc">
+          Premium streetwear and performance pieces built for movement —
+          designed in-house, worn everywhere.
+        </p>
+        <div class="hero-actions">
+          <a href="#shop" class="btn btn-primary">Shop New Drops</a>
+          <a href="#collections" class="btn btn-ghost">View Collections</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>48+</strong><span>Styles</span></div>
+          <div><strong>12K</strong><span>Members</span></div>
+          <div><strong>4.9</strong><span>Rating</span></div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>MOVE BOLD · DRESS SHARPER · YOURFIT HOUSE · </span>
+        <span>MOVE BOLD · DRESS SHARPER · YOURFIT HOUSE · </span>
+      </div>
+    </section>
+
+    <section class="collections" id="collections">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Collections</p>
+          <h2>Three worlds. One house.</h2>
+        </div>
+        <div class="collection-grid" id="collectionGrid">
+          <p class="loading-msg">Loading collections…</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop" id="shop">
+      <div class="container">
+        <div class="section-head section-head--row">
+          <div>
+            <p class="eyebrow">New Arrivals</p>
+            <h2>Fresh from the house</h2>
+          </div>
+          <a href="#" class="link-arrow">View all</a>
+        </div>
+        <div class="product-grid" id="productGrid">
+          <p class="loading-msg">Loading products…</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="YourFit House studio" loading="lazy" />
+          <div class="about-badge">Est. 2024</div>
+        </div>
+        <div class="about-content">
+          <p class="eyebrow">Our Story</p>
+          <h2>Built for people who live in motion</h2>
+          <p>
+            YourFit House started with a simple idea: your wardrobe should keep up
+            with your life — from the gym floor to the city block. We design every
+            piece in-house with premium fabrics, intentional fits, and details that
+            last beyond one season.
+          </p>
+          <p>
+            We're not fast fashion. We're the house you come back to when you want
+            gear that feels as good as it looks.
+          </p>
+          <ul class="about-values">
+            <li>
+              <strong>Sustainable sourcing</strong>
+              <span>Organic cotton & recycled poly where it counts</span>
+            </li>
+            <li>
+              <strong>True-to-size fits</strong>
+              <span>Detailed size guides on every product</span>
+            </li>
+            <li>
+              <strong>Free returns</strong>
+              <span>30 days, no questions asked</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner">
+      <div class="container cta-inner">
+        <h2>Welcome to the house</h2>
+        <p>Early access to drops, member-only pricing, and style guides.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Enter your email" required aria-label="Email address" />
+          <button type="submit" class="btn btn-primary">Get access</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">YourFit<span>House</span></a>
+        <p>Premium streetwear & activewear.<br />Move bold. Dress sharper.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#shop">New Arrivals</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#">Sale</a></li>
+          <li><a href="#">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Admin</h4>
+        <ul>
+          <li><a href="/admin/">Manage items</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Follow</h4>
+        <ul class="social-links">
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="TikTok">TikTok</a></li>
+          <li><a href="#" aria-label="Twitter">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 YourFit House. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
